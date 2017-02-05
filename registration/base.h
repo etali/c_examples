@@ -31,11 +31,7 @@ class Base {
       GetCreators()[id] = T::Create;
       return true;
     }
-
-    // flag for registeration;
-    static bool IsRegistered() { return IsRegistered_; }
-   private:
-    static bool IsRegistered_;
+    static bool IsRegistered;
   };
 
   static creators& GetCreators() {
@@ -47,7 +43,7 @@ class Base {
 // Here template<> is necessary for specializations
 #define REGISTER_TYPE(T, STR) \
     template<> bool \
-    Base::Register<T>::IsRegistered_ = \
+    Base::Register<T>::IsRegistered = \
     Base::Register<T>::AddCreator(STR)
 
 #endif // BASE_H_ 

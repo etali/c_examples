@@ -1,10 +1,12 @@
+#include <iostream>
+#include <string>
 #include "base.h"
 #include "a.h"
 
-DerivedA::DerivedA() {
-  std::cout << "A::DerivedA constructor\n";
+DerivedA::DerivedA(const std::string params) {
+  std::cout << "DerivedA constructor " + params + "\n";
 }
 
-Base* DerivedA::Create() {
-  return new DerivedA();
+Base* DerivedA::Create(const std::string params) {
+  return new DerivedA(params);
 }

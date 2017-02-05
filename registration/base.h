@@ -23,14 +23,19 @@ class Base {
  private:
   template<class T>
   struct Register {
-    static creator AddCreator(const std::string& id) {
+    static bool AddCreator(const std::string& id) {
       auto iter = GetCreators().find(id);
       if (iter != GetCreators().end()) {
           // replace an existed creator, output warning information
       }
-      return GetCreators()[id] = T::Create;
+      GetCreators()[id] = T::Create;
+      return true;
     }
-    static creator s_creator;
+
+    // flag for registeration;
+    static bool IsRegistered() { return IsRegistered_; }
+   private:
+    static bool IsRegistered_;
   };
 
   static creators& GetCreators() {
@@ -41,8 +46,8 @@ class Base {
 
 // Here template<> is necessary for specializations
 #define REGISTER_TYPE(T, STR) \
-    template<> std::function<Base*(const std::string)> \
-    Base::Register<T>::s_creator = \
+    template<> bool \
+    Base::Register<T>::IsRegistered_ = \
     Base::Register<T>::AddCreator(STR)
 
 #endif // BASE_H_ 

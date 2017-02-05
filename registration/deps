@@ -1,5 +1,0 @@
-a.o: a.cc base.h a.h
-b.o: b.cc base.h b.h
-c.o: c.cc base.h c.h
-d.o: d.cc base.h d.h
-main.o: main.cc base.h registration_list.h a.h b.h c.h d.h

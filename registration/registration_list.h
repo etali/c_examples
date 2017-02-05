@@ -10,6 +10,6 @@ REGISTER_TYPE(DerivedB, "B");
 #include "c.h"
 REGISTER_TYPE(DerivedC, "C");
 #include "d.h"
-REGISTER_TYPE(DerivedD, "D");
+REGISTER_TYPE_BOOL(DerivedD, "D", false);
 
 #endif // REGISTRATION_LIST_H_

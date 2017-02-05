@@ -13,6 +13,11 @@ int main(int argc, char *argv[]) {
         delete tmp;
     }
   } 
+
+  // add #include "d.h"
+  // std::cout << CHECK_REGISTRATION(DerivedD) << std::endl;
+  // it is supposed to output "0"
+
   // delete Base::Create("A");
   // delete Base::Create("Bee");
   // delete Base::Create("sea");

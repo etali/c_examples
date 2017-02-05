@@ -39,6 +39,7 @@ class Base {
   }
 };
 
+// Here template<> is necessary for specializations
 #define REGISTER_TYPE(T, STR) \
     template<> std::function<Base*(void)> \
     Base::Register<T>::s_creator = \

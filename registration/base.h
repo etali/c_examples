@@ -30,7 +30,8 @@ class Base {
 
   virtual ~Base() {}
 
-  static Base* Create(const std::string& id, const std::string params) {
+  static Base* Create(const std::string& id,
+                      const std::string params) {
     auto iter = GetCreators().find(id);
     if (iter == GetCreators().end())
       return nullptr;
